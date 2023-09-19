@@ -6,11 +6,12 @@ public class Enemy : MonoBehaviour
 {
     public SpriteRenderer EnemySprite;
     public Sprite EnemyDead;
-    [SerializeField] private BoxCollider2D headCollider;
-    [SerializeField] private BoxCollider2D bodyCollider;
+    public Rigidbody2D EnemyRigid;
+    public float speed;
+    [SerializeField] private BoxCollider2D EnemyCollider;
     [SerializeField] private Gun gun;
 
-     private GameObject level;
+    private GameObject level;
     private GameObject player;
     private float targetAngle;
     private bool isAiming;
@@ -20,20 +21,19 @@ public class Enemy : MonoBehaviour
     {
         isAiming = false;
         Dead = false;
-
-        headCollider.enabled = true;
-        bodyCollider.enabled = true;
+        EnemyCollider.enabled = true;
         gun.Renew();
     }
 
     private void Awake()
     {
-        //level = transform.parent.gameObject;
+        level = transform.parent.gameObject;
     }
 
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        EnemyRigid = GetComponent<Rigidbody2D>();
     }
 
     private void Update()
@@ -81,20 +81,22 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.transform.CompareTag("PlayerBullet"))
         {
+            Debug.Log("trigg");
+            EnemyRigid.AddForce(transform.up * 5, ForceMode2D.Impulse);
             EnemySprite.sprite = EnemyDead;
-            
-            Player.Instance.MovePlayer();
+            EnemyCollider.enabled = false;
+            Player.Instance.UpdatePlayerPos();
         }
         if (collision.gameObject.transform.CompareTag("Ground"))
         {
-            gameObject.SetActive(false);
+           // gameObject.SetActive(false);
         }
     }
     public void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.transform.CompareTag("Level"))
         {
-            gameObject.SetActive(false);
+            //gameObject.SetActive(false);
         }
     }
 }

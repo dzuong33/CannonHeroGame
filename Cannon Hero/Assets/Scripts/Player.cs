@@ -30,9 +30,9 @@ public class Player : MonoBehaviour
         Player.isShot = false;
         Player.needMovePlayer= false;
     }
-    public void MovePlayer()
+    public void UpdatePlayerPos()
     {
-        SpawnManager.isChangingLevel = true;
+        StartCoroutine(MovePlayer());
     }
     private void Update()
     {
@@ -51,10 +51,7 @@ public class Player : MonoBehaviour
         {
             StartCoroutine(Fire());
         }
-        if(Player.needMovePlayer)
-        {
-            //movePlayer();
-        }
+
     }
     private IEnumerator Fire()
     {
@@ -65,6 +62,12 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(timeWaitToFire);
 
         gun.GetComponent<Gun>().Fire();
+    }
+    private IEnumerator MovePlayer()
+    {
+        float timeWaitToMove = 1f;
+        yield return new WaitForSeconds(timeWaitToMove);
+        SpawnManager.isChangingLevel = true;
     }
 }
 

@@ -102,8 +102,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemySprite: {fileID: 8526897415644679141}
   EnemyDead: {fileID: 21300006, guid: c9badfd08ffb5d54a84461962a75df34, type: 3}
-  headCollider: {fileID: 4882896975983456963}
-  bodyCollider: {fileID: 55278196956674606}
+  EnemyRigid: {fileID: -8242604095137553723}
+  speed: 2
+  EnemyCollider: {fileID: 1095150020595638083}
   gun: {fileID: 680041785164894388}
 --- !u!61 &1095150020595638083
 BoxCollider2D:
@@ -118,7 +119,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.0013764873, y: -0.037165433}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -129,7 +130,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.47708333, y: 0.67291665}
+  m_Size: {x: 0.45781237, y: 0.5985858}
   m_EdgeRadius: 0
 --- !u!50 &-8242604095137553723
 Rigidbody2D:
@@ -139,7 +140,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1736625582797549974}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -199,7 +200,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8926213897267174373
 Transform:
   m_ObjectHideFlags: 0
@@ -403,7 +404,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8682711773747713344
 Transform:
   m_ObjectHideFlags: 0
