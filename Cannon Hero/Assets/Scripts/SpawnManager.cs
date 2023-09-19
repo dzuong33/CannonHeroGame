@@ -33,9 +33,9 @@ public class SpawnManager : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log("Changing");
         if (SpawnManager.isChangingLevel)
         {
-            Debug.Log("Changing");
             if (levels[1].transform.position.x > -levelDistance)
             {
                 foreach (var level in levels)

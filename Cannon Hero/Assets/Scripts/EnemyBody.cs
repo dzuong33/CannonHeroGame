@@ -16,7 +16,7 @@ public class EnemyBody : MonoBehaviour
         if (collision.gameObject.transform.CompareTag("PlayerBullet"))
         {
             Debug.Log("Trigg");
-            gameObject.SetActive(false);
+           // gameObject.SetActive(false);
         }
     }
 }
