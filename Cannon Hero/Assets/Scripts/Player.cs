@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using System.Runtime.InteropServices.ComTypes;
 
 public class Player : MonoBehaviour
 {
@@ -31,7 +32,7 @@ public class Player : MonoBehaviour
     }
     public void MovePlayer()
     {
-        playerTransform.DOMove(new Vector3(4, playerTransform.position.y, 0), 1f);
+        SpawnManager.isChangingLevel = true;
     }
     private void Update()
     {

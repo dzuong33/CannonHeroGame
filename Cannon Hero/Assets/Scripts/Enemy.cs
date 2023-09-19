@@ -79,24 +79,22 @@ public class Enemy : MonoBehaviour
     }
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.transform.CompareTag("Ground"))
-        {
-            Debug.Log("Trigg");
-            gameObject.SetActive(false);
-            Player.Instance.MovePlayer();
-        }
         if (collision.gameObject.transform.CompareTag("PlayerBullet"))
         {
             EnemySprite.sprite = EnemyDead;
+            
+            Player.Instance.MovePlayer();
+        }
+        if (collision.gameObject.transform.CompareTag("Ground"))
+        {
+            gameObject.SetActive(false);
         }
     }
     public void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.transform.CompareTag("Level"))
         {
-            Debug.Log("Trigg");
             gameObject.SetActive(false);
-            Player.Instance.MovePlayer();
         }
     }
 }

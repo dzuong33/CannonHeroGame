@@ -15,8 +15,8 @@ public class EnemyHead : MonoBehaviour
     {
         if (collision.gameObject.transform.CompareTag("PlayerBullet"))
         {
-            Debug.Log("Trigg");
-            gameObject.SetActive(false);
+            //Debug.Log("Trigg");
+            //gameObject.SetActive(false);
         }
     }
 }
